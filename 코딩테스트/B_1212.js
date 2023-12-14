@@ -60,7 +60,12 @@ console.log(removeDup('ban'));
 // : 주어진 문자열에서 특정 문자의 개수를 반환하는 함수를 작성
 // 예시: 입력 ("javascript", "a") -> 출력 2
 
-
+let string = "javascript";
+function countChar(str, char) {
+  // split메소드로 문자열을 나누어 배열에 저장한 후 리턴
+  return str.split('').filter(c => c === char).length;
+}
+console.log(countChar(string, "a")); // 2
 
 
 //! Q5. 피보나치 수열의 n번째 항을 계산하기
@@ -72,6 +77,27 @@ console.log(removeDup('ban'));
 // : 그 이후의 모든 항은 바로 앞의 두 항의 합으로 이루어진다.
 // 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...
 
+// 피보나치 수열은 이전 두항의 합으로 계산
+function fibonacci(n) {
+  let a = 0;
+  let b = 1;
+  let c; // 현재 계산중인 피보나치 수열의 항
 
+  // 피보나치 수열의 첫 번째 항(0)을 반환
+  if (n === 0) return a;
 
+  // i는 현재 계산하고 있는 피보나치 수열의 인덱스
+  for (let i = 2; i <= n; i++){
+    c = a + b;
+
+    // a와 b의 값을 갱신
+    a = b;
+    b = c;
+  }
+  return b;
 }
+console.log(fibonacci(6)); // 8
+
+
+
+} //
